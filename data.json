@@ -1,0 +1,259 @@
+{
+  "document_id": "CUS_infos",
+  "title": "CUS",
+  "sections": [
+    {
+      "name": "ITA sales rep",
+      "data": [
+        "Italy → INW → Lisa Cora",
+        "Italy → INE → Francesca Pagani",
+        "Italy → IC1 → Mila Poli",
+        "Italy → IC2 → Giorgia Atturo",
+        "Italy → IC3 → Giorgia Atturo",
+        "Italy → ISE → Umberto Salvatore",
+        "Italy → ISN → Umberto Salvatore",
+        "Italy → ISW → Umberto Salvatore"
+      ]
+    },
+    {
+      "name": "Demo bill to",
+      "data": [
+        "France: MA0550$E",
+        "Germany/Poland: MA0420$E",
+        "UK: MA0430$E",
+        "Austria: MA0480$E",
+        "BENELUX: MA0440$E",
+        "Switzerland: MA0100$H",
+        "Sweden/Denmark: MS0080$I",
+        "Portugal/SPAIN: MA0480$E",
+        "Italy: IT0010$E",
+        "Singapore: MA0600$I",
+        "China: BE0040$I",
+        "South Africa: KK0020$I",
+        "Colombia: JP0020$I",
+        "Brazil: MA0031$B",
+        "Mexico: TB0010$I",
+        "Argentina: MA0100$M",
+        "Hong Kong: Bill-to UT0000$I, ship-to MK1000$S"
+      ]
+    },
+    {
+      "name": "Turkey",
+      "data": [
+        "Database: MIS & MTR",
+        "Stock on site : NO",
+        "Contact :Ipek Ersu - ipek.ersu@masimo.com",
+        "Credit hold/prepaid : keep both orders on hold and ask AR",
+        "Regulatory : MIS order is the one that counts",
+        "Order confirmation: not needed, but send SO to Ipek\n",
+        "MIS\n",
+        "Bill to & Ship to: MA0011$T",
+        "Order Class: MT - MIS MTR Intercompany",
+        "Configurations :  Need to be entered SOWP (Show with price )  on all lines",
+        "Add MTR SO number in Ref\n",
+        "MTR\n",
+        "SR 50",
+        "Bill to & Ship to: check PO",
+        "Order Class: Normal",
+        "Add MIS SO number in Ref",
+        "Change VAT on line level based on PO (very little items at 18%)",
+        "Change region based on email\n",
+        "DEMO\n",
+        "MIS : Bill to & Ship to: MA0011$T",
+        "MTR : Bill to & Ship to: MA0011$T",
+        "Order class in MIS it's: MT - MIS MTR Intercompany",
+        "Order class in MTR : Samples Turkey",
+        "Add contact/sales in comments\n",
+        "WARRANTY\n",
+        "MIS : Bill to & Ship to: MA0011$T",
+        "MTR : Bill to & Ship to: MA0011$T"
+      ]
+    },
+    {
+      "name": "Brazil",
+      "data": [
+        "logmed contacts using while sending the OC for most of the cases\n",
+        "fagner@logmed.net;\nfaturamento.valinhos@logmed.net;\nfrancisco.santos@masimo.com;\nMNajera@masimo.com;\nhramirez@masimo.com;\nCustomerServiceLATAM@masimo.com;\nLATAMSales@masimo.com;\nSibelly.oliveira@logmed.net"
+      ]
+    },
+    {
+      "name": "cancellation notes",
+      "data": [
+        "OPERATIONS REQUESTED BOM CHANGE - Original P/N : xx (line x.xx) - New P/N : yyyyyy ; order taker initials, date\n",
+        "OPERATIONS REQUESTED BOM CHANGE - Original P/N : xx (line x.xx) - Cancelled - order taker initials, date"
+      ]
+    },
+    {
+      "name": "useful commands",
+      "data": [
+        "shutdown \\r \n",
+        "OPERATIONS REQUESTED BOM CHANGE - Original P/N : xx (line x.xx) - Cancelled - order taker initials, date"
+      ]
+    },
+    {
+      "name": "random infos",
+      "data": [
+        "Dear @\n",
+        "Customer XXXXXX$X | SO PXXXXXX | CL.\n",
+        "Thank you for your help.\n",
+        "Kind regards,\n",
+        "Raffaele\n",
+        "------------------------------------------------\n",
+        "marketing-eu@masimo.com\n",
+        "------------------------------------------------\n",
+        "Country - SO # - Sales Market Not approved - amount $$\n",
+        "--------------------------------------------------\n",
+        "TNI shipment SR 66"
+      ]
+    },
+    {
+      "name": "Indian process",
+      "data": [
+        "DATABASE : MIS & MMTI",
+        "Stock on site : Yes",
+        "Contact : Michael Christopher - mchristopher@masimo.com",
+        "Credit hold/prepaid : keep both orders on hold",
+        "Ø Prepaid - send request to AP-APAC@masimo.com and cc AR",
+        "Ø Credit : send request to AR",
+        "Regulatory : MIS order is the one that counts",
+        "Order confirmation : not needed, but send SO to Michael",
+        "",
+        "Order in MIS :\n",
+        "- Bill to : MM0020$I",
+        "- Ship to : MM00206I",
+        "- Order class : MI - MMTI Interco",
+        "- Configurations :  Need to be entered SOWP (Show with price )  on all lines",
+        "- Add MMTI SO in Ref",
+        "- No need to change VAT on MIS",
+        "",
+        "Order in MMTI:\n",
+        "- Change GST on line level based on Customer PO, and/or based on below instructions:",
+        "○ KGST - to be applied for customers in state Karnataka",
+        "○ IGST - all other Indian customers (outside state of Karnataka)",
+        "- Change store code if different in email from Michael\n",
+        "For All Main Devices (RAD, RADICAL, ROOT etc) - GST 5%",
+        "For All Sensors - GST 5%",
+        "For All CUFF Items - GST 5%",
+        "For All Cable Items - GST 18%\n",
+        "If Customer/Distributor within Karnataka State - Tax Code would be KGST5% or KGST18%",
+        "If Customer/Distributor within rest of India except Karnataka - Tax Code would be IGST5% or IGST18%",
+        "Demo Orders :\n",
+        "In MMTI:\n",
+        "○ Order Class: SI - Samples India",
+        "○ Bill to & Ship to: MA0000$R",
+        "○ Without prices",
+        "",
+        "TAAS invoicing\n",
+        "- Order class: TA-TaaS Invoicing",
+        "- BT and ST, price as PO which you received from Michael - no need to ask for  quote or anything else",
+        "- PN 4509 - overwrite description and enter same as on PO",
+        "- Only in MMTI",
+        "- Ok to release order  without asking for credit release",
+        "- Send SO number to Michael\n",
+        "Taas invoicing with contract (SCIN..)- Search Contract in SalesForce, take Bill to ID linked to contract for order process\n",
+        "Configuration Type\n",
+        "- Check on the price list : here",
+        "- Michael usually use 9738-3 to indicate which configuration to use",
+        "- Follow the template from the excel file"
+      ]
+    },
+    {
+      "name": "Latam orders",
+      "data": [
+        "All Latam are processed in MIS\n",
+        "except:\n",
+        "Brazil → MBR",
+        "Mexico → MXN\n",
+        "Are processed by Customerorders@masimo.com\n",
+        "Puerto Rico",
+        "Trinidad Tobago",
+        "US orders\n",
+        "1 Process the order\n",
+        "2 Freight\n",
+        "If there's no other Hold reasons - adjust dates and open the SO",
+        "Send email to ExportAdminstration@masimo.com to quote freight",
+        "Email cc: Customer and everyone else",
+        "When customer confirms freight option",
+        "Add freight to order",
+        "Add shipping instructions\n",
+        "3 Send order confirmation PDF to customer and everyone else\n",
+        "o SC 73 – Mexicali\n",
+        "Mario Abel  Gutierrez Duran <Mrgutierrez@masimo.com>;",
+        "Christian Alan Romero Garcia alromero@masimo.com;",
+        "MXL-ExportAdministration@masimo.com\n",
+        "unit PN → EA-20 or EA-25, etc\n",
+        "-----------------------------------------------------------",
+        "✈ Quote freight, Guatemala etc",
+         "-----------------------------------------------------------\n",
+        "Export Adminstration <ExportAdminstration@masimo.com>,",
+        "Denia Urena <durena@masimo.com>; Customer Service - LATAM <CustomerServiceLATAM@masimo.com>; Jorge Mario Aquino <jmaquino@jormarsa.com>; Hilda Martinez <hmartinez@jormarsa.com>; LATAMSales <LATAMSales@masimo.com>"
+        ]
+      },
+    {
+      "name": "Links",
+      "data": [
+        "Care plan",
+        "C:\\Users\\raffaele.beffa\\Documents\\Care_plan_Masimo.pdf",
+        "RMA doc",
+        "C:\\Users\\raffaele.beffa\\Documents\\CN & RMA\\RMA\\RMA - Return address - CH.pdf",
+        "Salesforce",
+        "https://masimo.my.salesforce.com/home/home.jsp?sdtd=1",
+        "Bryce tracking",
+        "http://bryce/intranet/exapps/get_soid_from_MIS.cfm",
+        "EDI",
+        "http://usirvpcol01/edi/edi_orders_v2.cfm",
+        "PN check",
+        "http://bryce/ma/query.cfm"
+      ]
+    },
+    {
+      "name": "Mexico",
+      "data": [
+        "\uD83D\uDCE7 Standard mail MXN",
+        "-----------------------------------------------------------\n",
+        "Buenos días\n",
+        "Gracias por su nuevo pedido, le envío la confirmación.",
+        "Por favor, hágamelo saber en caso de que tenga alguna pregunta.",
+        "Tan pronto como se separen los productos, contactaremos para organizar la recolección.\n",
+        "Gracias.\n",
+        "-----------------------------------------------------------",
+        "✒ Signature for Grupo Angeles (MXN)",
+         "-----------------------------------------------------------\n",
+        "Estimados, buenos días",
+        "Pedido confirmado, referencia Masimo actualizada en el asunto del correo   – a partir de ahora por favor todas las comunicaciones de ese pedido deben contener esa referencia en el asunto del correo.",
+        "Tan pronto esté lista la factura, se la enviará.\n",
+        "Gracias.\n",
+        "-----------------------------------------------------------",
+        "\uD83D\uDCE7 Contacts to add when sending OC",
+         "-----------------------------------------------------------\n",
+        "pedidos@toggo.com.mx; Customer Service - LATAM <CustomerServiceLATAM@masimo.com>; Marco Antonio Najera Vera <MNajera@masimo.com>; hramirez@masimo.com; Diego.Jarillo@masimo.com; PAMORAGA@masimo.com\n"
+      ]
+     },
+    {
+      "name": "Git hub",
+      "data": [
+      "STEPS:\n",
+      "(select path to your depository)",
+      "git init",
+      "git add  .",
+      "git commit -m",
+      "git remote add origin https://github.com/elcangri90/sqlite3.git (change link based on the repository)",
+      "git branch -M main",
+      "git push -u origin main",
+      "if linked to the wrong repo",
+      "git remove -v",
+      "git remote remove origin",
+      "git remote and origine (right repo URL)",
+      "git push -u origin main"
+
+      ]
+    }
+  ]
+}
+
+
+
+
+
+
+
