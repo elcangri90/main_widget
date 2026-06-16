@@ -32,7 +32,7 @@
         "South Africa: KK0020$I",
         "Colombia: JP0020$I",
         "Brazil: MA0031$B",
-        "Mexico: TB0010$I",
+        "Mexico: MA0010$M",
         "Argentina: MA0100$M",
         "Hong Kong: Bill-to UT0000$I, ship-to MK1000$S"
       ]
@@ -230,20 +230,21 @@
       ]
      },
     {
-      "name": "Git hub",
+      "name": "Github migration",
       "data": [
       "STEPS:\n",
-      "(select path to your depository)",
+      "alt+r → cmd",
+      "(select path to your depository in cmd",
       "git init",
       "git add  .",
-      "git commit -m",
-      "git remote add origin https://github.com/elcangri90/sqlite3.git (change link based on the repository)",
+      "git commit -m Initial commit",
+      "git remote add origin https://github.com/elcangri90/sqlite3.git → (change link based on the repository (github))",
       "git branch -M main",
-      "git push -u origin main",
-      "if linked to the wrong repo",
+      "git push -u origin main\n",
+      "XX-- if linked to the wrong repo --XX\n",
       "git remove -v",
       "git remote remove origin",
-      "git remote and origine (right repo URL)",
+      "git remote and origin (right repository URL (github)",
       "git push -u origin main"
 
       ]
