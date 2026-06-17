@@ -203,7 +203,9 @@
         "EDI",
         "http://usirvpcol01/edi/edi_orders_v2.cfm",
         "PN check",
-        "http://bryce/ma/query.cfm"
+        "http://bryce/ma/query.cfm",
+        "Github",
+        "http://github.com/elcangri90"
       ]
     },
     {

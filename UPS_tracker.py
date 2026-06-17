@@ -2,20 +2,17 @@ import tkinter as tk
 from tkinter import ttk
 import base64
 import requests
-
+from datetime import datetime
 # ============================
 # UPS PRODUCTION ENDPOINTS
 # ============================
 TOKEN_URL = "https://onlinetools.ups.com/security/v1/oauth/token"
 TRACK_URL = "https://onlinetools.ups.com/api/track/v1/details/"
-
 # ============================
 # YOUR UPS CREDENTIALS
 # ============================
 CLIENT_ID = "1lasVvgYvQhnF8TdbHfIKJRdfXlKBlj2TIzEu2kDcSQiP7yw"
 CLIENT_SECRET = "snqnAPpvGgeYbegkRVBLw5Z3c49BRxYGIjrxM79sVNAY0DIA4nCAWJS5lBF9WEiK"
-
-
 # ============================
 # GET UPS TOKEN
 # ============================
@@ -35,8 +32,6 @@ def get_token():
         return None
 
     return response.json()["access_token"]
-
-
 # ============================
 # TRACK PACKAGE
 # ============================
@@ -49,8 +44,6 @@ def track_package(tracking_number, token):
     }
     response = requests.get(url, headers=headers)
     return response.json()
-
-
 # ============================
 # EXTRACT USEFUL INFO
 # ============================
@@ -65,9 +58,16 @@ def extract_ups_summary(data):
             "status": pkg["currentStatus"]["description"],
             "last_update": last_event["status"]["description"],
             "last_city": last_event["location"]["address"].get("city", "Unknown"),
+
+            # Raw UPS values
             "date": last_event["date"],
             "time": last_event["time"],
+
+            # EU formatted values
+            "date_eu": datetime.strptime(last_event["date"], "%Y%m%d").strftime("%d/%m/%Y"),
+            "time_eu": datetime.strptime(last_event["time"], "%H%M%S").strftime("%H:%M"),
         }
+
     except Exception as e:
         return {"error": str(e)}
 
@@ -80,8 +80,6 @@ class UPSTrackingWidget(ttk.Frame):
         super().__init__(parent)
         self.configure(padding=10)
 
-        ttk.Label(self, text="UPS Tracking Summary", font=("Segoe UI", 14, "bold")).pack(pady=5)
-
         if "error" in summary:
             ttk.Label(self, text="Error: " + summary["error"], foreground="red").pack()
             return
@@ -90,8 +88,27 @@ class UPSTrackingWidget(ttk.Frame):
         ttk.Label(self, text=f"Status: {summary['status']}").pack(anchor="w")
         ttk.Label(self, text=f"Last Update: {summary['last_update']}").pack(anchor="w")
         ttk.Label(self, text=f"Location: {summary['last_city']}").pack(anchor="w")
-        ttk.Label(self, text=f"Date: {summary['date']}").pack(anchor="w")
-        ttk.Label(self, text=f"Time: {summary['time']}").pack(anchor="w")
+        ttk.Label(self, text=f"Date: {summary['date_eu']}").pack(anchor="w")
+        ttk.Label(self, text=f"Time: {summary['time_eu']}").pack(anchor="w")
+
+        # --- COPY BUTTON (LEFT PACKED) ---
+        ttk.Button(
+            self,
+            text="Copy",
+            command=lambda: self.copy_to_clipboard(summary)
+        ).pack(anchor="w", pady=5)
+
+    def copy_to_clipboard(self, summary):
+        text = (
+            f"Tracking Number: {summary['tracking_number']}\n"
+            f"Status: {summary['status']}\n"
+            f"Last Update: {summary['last_update']}\n"
+            f"Location: {summary['last_city']}\n"
+            f"Date: {summary['date_eu']}\n"
+            f"Time: {summary['time_eu']}"
+        )
+        self.clipboard_clear()
+        self.clipboard_append(text)
 
 
 # ============================
@@ -114,14 +131,14 @@ def open_ups_tracker(root, open_windows, close_window):
     win = tk.Toplevel(root)
     win.title("UPS Tracker")
     win.attributes("-topmost", True)
-    win.resizable(False, False)
+    win.resizable(True, True)
     win.configure(bg="black")
 
     open_windows[key] = ("window", win)
 
     # Center window
     win.update_idletasks()
-    w, h = 380, 320
+    w, h = 300, 250
     sw = win.winfo_screenwidth()
     sh = win.winfo_screenheight()
     x = (sw - w) // 2
@@ -135,11 +152,14 @@ def open_ups_tracker(root, open_windows, close_window):
     frame = ttk.Frame(win, padding=20)
     frame.pack(fill="both", expand=True)
 
-    ttk.Label(frame, text="Enter UPS Tracking Number:", font=("Segoe UI", 12)).pack()
+    # Top bar: entry left, button right
+    top_bar = ttk.Frame(frame)
+    top_bar.pack(fill="x", pady=(0, 10))
 
-    entry = ttk.Entry(frame, width=35)
-    entry.pack(pady=10)
+    entry = ttk.Entry(top_bar, width=20)
+    entry.pack(side="left", anchor="nw")
 
+    # Result frame stays below
     result_frame = ttk.Frame(frame)
     result_frame.pack(fill="both", expand=True, pady=10)
 
@@ -160,4 +180,5 @@ def open_ups_tracker(root, open_windows, close_window):
         widget = UPSTrackingWidget(result_frame, summary)
         widget.pack(fill="x")
 
-    ttk.Button(frame, text="Track Package", command=on_track).pack(pady=10)
+    ttk.Button(top_bar, text="Track Package", command=on_track).pack(
+        side="right", anchor="ne", padx = 10, pady= 5)

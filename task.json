@@ -1,7 +1,0 @@
-{
-  "open_mailboxes_morning": {
-      "time": "08:00",
-      "action": "open_mailbox_launcher",
-      "repeat": "daily"
-    }
-}
