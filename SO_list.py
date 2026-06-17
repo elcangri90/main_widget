@@ -16,6 +16,7 @@ from calculator import open_calculator
 from address_lookup import open_address_search
 import sys
 from persistent_notes import open_persistent_notes
+from UPS_tracker import open_ups_tracker
 
 open_windows = {}
 
@@ -448,6 +449,8 @@ def open_cus_with_refresh():
     save_document("docs.db", "data.json")
     open_cus_viewer(root, open_windows, close_window)
 
+
+
 def dark_button(parent, text, command):
     return tk.Button(
         parent,
@@ -475,7 +478,7 @@ btn_restore_2.grid(row=0, column=0, padx=4, pady=4)
 dark_button(button_grid,"💰", lambda: open_pricing_tool(root, open_windows, close_window)).grid(row=0, column=1, padx=4, pady=4)
 dark_button(button_grid, "📍",lambda: open_address_search(root, open_windows, close_window)).grid(row=0, column=2, padx=4, pady=4)
 
-dark_button(button_grid, "", empty_message()).grid(row=0, column=3, padx=4, pady=4)
+dark_button(button_grid, "🚚", lambda: open_ups_tracker(root, open_windows, close_window)).grid(row=0, column=3, padx=4, pady=4)
 dark_button(button_grid, "🗄", open_cus_with_refresh).grid(row=0, column=4, padx=4, pady=4)
 dark_button(button_grid, "⚡", lambda: open_cords_lookup(root, open_windows, close_window)).grid(row=0, column=5, padx=4, pady=4)
 dark_button(button_grid, "📦", open_bo_mis_folder).grid(row=0, column=6, padx=4, pady=4)
