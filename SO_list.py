@@ -18,6 +18,7 @@ import sys
 from persistent_notes import open_persistent_notes
 from ups_tracker import open_ups_tracker
 from bryce_tracker import open_mis_tracker
+from task_scheduler import open_task_scheduler, start_scheduler
 
 open_windows = {}
 
@@ -94,7 +95,7 @@ root.bind("<Unmap>", minimize_all)
 root.bind("<Map>", restore_all)
 
 # Set an initial size so Tkinter doesn't think it's 1x1
-root.geometry("920x180")
+root.geometry("850x125")
 
 root.update_idletasks()
 center_main_window(root)
@@ -459,10 +460,10 @@ def dark_button(parent, text, command):
         command=command,
         bg="gray25",
         fg="white",
-        font=("Segoe UI", 15, "bold"),   # bigger emoji/text
+        font=("Segoe UI", 16, "bold"),   # bigger emoji/text
         relief="flat",
-        width=8,                         # equal width (in text units)
-        height=2,                        # equal height (in text units)
+        width=6,                         # equal width (in text units)
+        height=1,                        # equal height (in text units)
         padx=0,
         pady=0
     )
@@ -474,30 +475,28 @@ button_grid.pack(pady=10, anchor="center")
 
 btn_restore_2 = dark_button(button_grid,"📐",align_open_windows_left)
 btn_restore_2.configure(bg="darkblue", activebackground="darkblue")
-btn_restore_2.grid(row=0, column=0, padx=4, pady=4)
+btn_restore_2.grid(row=0, column=0, padx=2, pady=2)
 
-dark_button(button_grid,"💰", lambda: open_pricing_tool(root, open_windows, close_window)).grid(row=0, column=1, padx=4, pady=4)
-dark_button(button_grid, "📍",lambda: open_address_search(root, open_windows, close_window)).grid(row=0, column=2, padx=4, pady=4)
+dark_button(button_grid,"💰", lambda: open_pricing_tool(root, open_windows, close_window)).grid(row=0, column=1, padx=2, pady=2)
+dark_button(button_grid, "📍",lambda: open_address_search(root, open_windows, close_window)).grid(row=0, column=2, padx=2, pady=2)
+dark_button(button_grid, "UPS", lambda: open_ups_tracker(root, open_windows, close_window)).grid(row=0, column=3, padx=2, pady=2)
+dark_button(button_grid, "🗄", open_cus_with_refresh).grid(row=0, column=4, padx=2, pady=2)
+dark_button(button_grid, "⚡", lambda: open_cords_lookup(root, open_windows, close_window)).grid(row=0, column=5, padx=2, pady=2)
+dark_button(button_grid, "📦", open_bo_mis_folder).grid(row=0, column=6, padx=2, pady=2)
+dark_button(button_grid,"🔅",lambda: open_monitor_controls(root, open_windows, close_window)).grid(row=0, column=7, padx=2, pady=2)
+dark_button(button_grid, "⏱️", lambda: open_task_scheduler(root, open_windows, close_window)).grid(row=0, column=8, padx=2, pady=2)
 
-dark_button(button_grid, "UPS", lambda: open_ups_tracker(root, open_windows, close_window)).grid(row=0, column=3, padx=4, pady=4)
-dark_button(button_grid, "🗄", open_cus_with_refresh).grid(row=0, column=4, padx=4, pady=4)
-dark_button(button_grid, "⚡", lambda: open_cords_lookup(root, open_windows, close_window)).grid(row=0, column=5, padx=4, pady=4)
-dark_button(button_grid, "📦", open_bo_mis_folder).grid(row=0, column=6, padx=4, pady=4)
 
-dark_button(button_grid,"🔅",lambda: open_monitor_controls(root, open_windows, close_window)).grid(row=0, column=7, padx=4, pady=4)
-
-dark_button(button_grid, "📝",lambda: open_persistent_notes(root,open_windows, close_window)).grid(row=1, column=0, padx=4, pady=4)
-dark_button(button_grid, "📸", show_stored_image).grid(row=1, column=1, padx=4, pady=4)
-dark_button(button_grid, "📫", open_mailbox_launcher).grid(row=1, column=2, padx=4, pady=4)
-dark_button(button_grid,"➗",lambda: open_calculator(root, open_windows, close_window)).grid(row=1, column=3, padx=4, pady=4)
-dark_button(button_grid, "🚚", lambda: open_mis_tracker(root, open_windows, close_window)).grid(row=1, column=4, padx=4, pady=4)
-dark_button(button_grid, "⚖️", lambda: open_reg_lookup(root, open_windows, close_window)).grid(row=1, column=5, padx=4, pady=4)
-dark_button(button_grid, "🔁", launch_file_exchanger).grid(row=1, column=6, padx=4, pady=4)
-
+dark_button(button_grid, "📝",lambda: open_persistent_notes(root,open_windows, close_window)).grid(row=1, column=0, padx=2, pady=2)
+dark_button(button_grid, "📸", show_stored_image).grid(row=1, column=1, padx=2, pady=2)
+dark_button(button_grid, "📫", open_mailbox_launcher).grid(row=1, column=2, padx=2, pady=2)
+dark_button(button_grid,"➗",lambda: open_calculator(root, open_windows, close_window)).grid(row=1, column=3, padx=2, pady=2)
+dark_button(button_grid, "🚚", lambda: open_mis_tracker(root, open_windows, close_window)).grid(row=1, column=4, padx=2, pady=2)
+dark_button(button_grid, "⚖️", lambda: open_reg_lookup(root, open_windows, close_window)).grid(row=1, column=5, padx=2, pady=2)
+dark_button(button_grid, "🔁", launch_file_exchanger).grid(row=1, column=6, padx=2, pady=2)
 btn_restore = dark_button(button_grid,"💨",lambda: restore_minimized_windows(root, open_windows))
 btn_restore.configure(bg="darkblue", activebackground="darkblue")
-btn_restore.grid(row=1, column=7, padx=4, pady=4)
-
-
+btn_restore.grid(row=1, column=7, padx=2, pady=2)
+dark_button(button_grid, "🔁", launch_file_exchanger).grid(row=1, column=8, padx=2, pady=2)
 
 root.mainloop()

@@ -1,0 +1,7 @@
+{
+    "task_1": {
+        "time": "08:00",
+        "action": "connect wifi ",
+        "enabled": true
+    }
+}

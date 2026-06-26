@@ -4,7 +4,7 @@ import subprocess
 # Paths
 python_path = r"C:\Users\raffaele.beffa\Documents\python\1_so_list\venv\Scripts\python.exe"
 script_path = r"C:\Users\raffaele.beffa\Documents\python\1_so_list\SO_list.py"
-vbs_path = "launch_main_widget.vbs"
+vbs_path = "launcher.vbs"
 
 # Create VBS content
 vbs_content = f'''

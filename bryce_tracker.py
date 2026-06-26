@@ -58,6 +58,7 @@ def open_mis_tracker(root, open_windows, close_window):
 
     open_windows[key] = ("window", win)
     win.protocol("WM_DELETE_WINDOW", lambda: close_window(key))
+    win.bind("<Escape>", lambda e: close_window(key))
 
     # Center window
     win.update_idletasks()

@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Access Key</title>
+<HTA:APPLICATION
+  ID="ak"
+  BORDER="thin"
+  BORDERSTYLE="normal"
+  CAPTION="yes"
+  SHOWINTASKBAR="no"
+  SINGLEINSTANCE="yes"
+  SYSMENU="yes"
+  WINDOWSTATE="normal"
+  SCROLL="no">
+</head>
+
+<script language="VBScript">
+Sub Window_OnLoad
+    ' Force the window to a very small size
+    window.resizeTo 220, 140
+    window.moveTo (screen.width-220)/2, (screen.height-140)/2
+End Sub
+
+Sub OK_Click
+    Dim shell
+    Set shell = CreateObject("WScript.Shell")
+    shell.RegWrite "HKCU\Software\TempAccessKey\Value", document.getElementById("akfield").value, "REG_SZ"
+    window.close
+End Sub
+</script>
+
+<body style="font-family:Segoe UI; font-size:9pt; padding:6px; margin:0;">
+Enter key:<br>
+<input type="password" id="akfield" style="width:150px; height:18px; margin-top:6px;"><br>
+<input type="button" value="OK" onclick="OK_Click" style="width:50px; height:20px; margin-top:8px;">
+</body>
+</html>

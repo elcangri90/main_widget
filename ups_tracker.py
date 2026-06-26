@@ -4,6 +4,8 @@ import base64
 import requests
 from datetime import datetime
 
+from markupsafe import EscapeFormatter
+
 # ============================
 # UPS PRODUCTION ENDPOINTS
 # ============================
@@ -105,8 +107,8 @@ def open_ups_tracker(root, open_windows, close_window):
             win.lift()
             win.focus_force()
             return
-        else:
-            del open_windows[key]
+        #else:
+            #del open_windows[key]
 
     # Create window
     win = tk.Toplevel(root)
@@ -117,6 +119,7 @@ def open_ups_tracker(root, open_windows, close_window):
 
     open_windows[key] = ("window", win)
     win.protocol("WM_DELETE_WINDOW", lambda: close_window(key))
+    win.bind("<Escape>", lambda e:close_window(key))
 
     # Center window
     win.update_idletasks()
